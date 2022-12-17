@@ -5,10 +5,10 @@ set -o vi
 if [ -n "$PS1" ] ; then
 	rm () 
 	{ 
-		ls -FCsd --color=auto "$@"
+		ls -FCsd --color=auto $@ 
 		echo 'remove[n/Y]? ' | tr -d '\012'; read
 		if [ "_$REPLY" = "_Y" ]; then
-			/bin/rm -rf "$@"
+			/bin/rm "$@"
 		else
 			echo '(cancelled)'
 		fi
@@ -74,3 +74,7 @@ fi
 source "$HOME/.cargo/env"
 
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

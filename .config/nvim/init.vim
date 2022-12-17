@@ -12,6 +12,7 @@ filetype plugin indent on   " allow auto-indenting depending on file type
 set clipboard=unnamedplus   " using system clipboard
 filetype plugin on
 set ttyfast                 " Speed up scrolling in Vim
+set noexpandtab
 
 " Set the default font size
 set guifont=Hack:h11
@@ -20,6 +21,7 @@ call plug#begin("~/.config/nvim/autoload")
 	Plug 'ryanoasis/vim-devicons' " Icons	
 	Plug 'sainnhe/everforest'
 	Plug 'neoclide/coc.nvim', { 'branch' : 'release' } " Intellisense
+	Plug 'rust-lang/rust.vim'
 	Plug 'scrooloose/nerdtree', {'on' : 'NERDTreeToggle'} " Nerdtree
 	Plug 'mhinz/vim-startify' " cool start menu
 	Plug 'beyondmarc/glsl.vim' " glsl syntax highlighting	

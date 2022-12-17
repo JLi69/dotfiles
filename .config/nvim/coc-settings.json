@@ -19,8 +19,7 @@
 			{
 				"command": "cquery",
 				"args": ["--log-file=/tmp/cq.log"],
-				"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp", "h", "hpp"]
-,
+				"filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp", "h", "hpp"],
 				"rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
 				"initializationOptions":
 				{
@@ -29,7 +28,7 @@
 					"emitInactiveRegions": true
 				}
 			}
-		}
+		}	
 	},
 
 	"coc":
