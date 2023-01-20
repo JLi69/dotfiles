@@ -5,7 +5,7 @@ set -o vi
 if [ -n "$PS1" ] ; then
 	rm () 
 	{ 
-		ls -FCsd --color=auto $@ 
+		ls -FCsd --color=auto $@ --color=auto -aU 
 		echo 'remove[n/Y]? ' | tr -d '\012'; read
 		if [ "_$REPLY" = "_Y" ]; then
 			/bin/rm "$@"
@@ -18,7 +18,6 @@ fi
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
-
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -43,8 +42,12 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 if [ "$color_prompt" = yes ]; then
-	PS1='[\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]]\$ '	
+	PS1='[\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]] \[\033[00;35m\]$(parse_git_branch)\[\033[00m\]\n$ '	
 else
 	PS1='\u@\h \W\$ '
 fi
@@ -78,3 +81,11 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH+=":~/.local/bin"
+PATH+=:/home/jeremy/git/emsdk
+PATH+=:/home/jeremy/git/emsdk/upstream/emscripten
+PATH+=:/home/jeremy/git/emsdk/node/14.18.2_64bit/bin
+
+EMSDK=/home/jeremy/git/emsdk
+EMSDK_NODE=/home/jeremy/git/emsdk/node/14.18.2_64bit/bin/node
