@@ -39,6 +39,13 @@
 			{
 				"usePlaceholders": true
 			}
+		},
+
+		"rust":
+		{
+			"command": "rls",
+			"rootPatterns": [ "Cargo.toml", ".git" ],
+			"filetypes": ["rs"]
 		}
 	},
 
