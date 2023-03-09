@@ -36,7 +36,7 @@ tnoremap <A-L> <C-\><C-N><C-w>l
 map <C-X> :split<CR>:terminal<CR>
 
 map <C-T> :tabnew<CR>
-map <C-W> :bd<CR>
+map <A-w> :bd<CR>
 map <C-A> :bprev<CR>
 map <C-D> :bnext<CR>
 " CTRL + S to save file
