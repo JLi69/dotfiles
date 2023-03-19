@@ -15,7 +15,7 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+local volume_widget = require("volume")
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -49,9 +49,6 @@ do
     end)
 end
 -- }}}
-
--- Autostart
-awful.spawn(os.getenv("HOME").."/.config/awesome/autostart.sh")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -235,7 +232,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
 			mykeyboardlayout, 
-            volume_widget(),
+            volume_widget,
 			wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -350,20 +347,20 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() awful.spawn("dmenu_run") --[[menubar.show() --]] end,
+    awful.key({ modkey }, "p", function() awful.spawn("dmenu_run -sb orange -fn Hack:size=13", false) --[[menubar.show() --]] end,
               {description = "show the menubar", group = "launcher"}),
 	
 	-- Screenshot command
-	awful.key({ }, "Print", function() awful.spawn("flameshot launcher") end,
-			  {description = "take a screenshot", group = ""}),
+	awful.key({ }, "Print", function() awful.spawn("flameshot gui", false) end,
+			  {description = "take a screenshot", group = "misc"}),
 	-- Lock Screen
-	awful.key({ modkey, "Shift"   }, "x", function () awful.spawn("slock")    end,
-              {description = "Lock the computer", group = ""}),
+	awful.key({ modkey, "Mod1"   }, "l", function () awful.spawn("slock", false)    end,
+              {description = "Lock the computer", group = "misc"}),
 	
 	-- Volume Control
-	awful.key({ modkey }, "]", function() volume_widget:inc(5) end),
-	awful.key({ modkey }, "[", function() volume_widget:dec(5) end),
-	awful.key({ modkey }, "\\", function() volume_widget:toggle() end)
+	awful.key({ modkey }, "]", function() change_volume(volume_widget, 5) end),
+	awful.key({ modkey }, "[", function() change_volume(volume_widget, -5) end),
+	awful.key({ modkey }, "\\", function() toggle_mute(volume_widget) end)
 )
 
 clientkeys = gears.table.join(
@@ -532,7 +529,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = true, placement = awful.placement.centered }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -604,3 +601,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Autostart
+awful.spawn(os.getenv("HOME").."/.config/awesome/autostart.sh", false)

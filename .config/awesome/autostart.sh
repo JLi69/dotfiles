@@ -7,13 +7,14 @@ run()
 	pid=$(pgrep $1)
 	if [ -z $pid ]
 	then
-		$1 &
+		$2 &
 	fi
 }
 
-xrandr --output HDMI-2 --same-as HDMI-1 # Mirror displays
-picom --backend glx --vsync -b
-run nm-applet
-run cbatticon
-run package-update-indicator
-xautolock -time 6 -locker slock
+xrandr --output HDMI-2 --same-as HDMI-1 & # Mirror displays
+run picom "picom --backend glx --vsync -b"
+run nm-applet nm-applet
+run cbatticon cbatticon
+run package-update-indicator package-update-indicator
+xautolock -time 6 -locker slock &
+feh --bg-fill $HOME/Pictures/wallpaper/space-wallpaper.jpg &
