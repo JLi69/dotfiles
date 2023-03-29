@@ -15,8 +15,6 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
-local volume_widget = require("volume")
-
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -53,6 +51,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "mytheme.lua")
+beautiful.gap_single_client = false
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -78,9 +77,9 @@ awful.layout.layouts = {
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier,
+    -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -243,11 +242,19 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)
+    --awful.button({ }, 4, awful.tag.viewnext),
+    --awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
+
+function change_volume(widget, amt)
+	awful.spawn("pactl set-sink-volume 0 +" .. tostring(amt) .. "%", false)
+end
+
+function toggle_mute(widget)
+	awful.spawn("pactl set-sink-mute 0 toggle", false)
+end
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -347,7 +354,7 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() awful.spawn("dmenu_run -sb orange -fn Hack:size=13", false) --[[menubar.show() --]] end,
+    awful.key({ modkey }, "p", function() awful.spawn("dmenu_run -sf \"#ffffff\" -sb \"#222222\" -nf \"#888888\" -fn Hack:size=13", false) --[[menubar.show() --]] end,
               {description = "show the menubar", group = "launcher"}),
 	
 	-- Screenshot command

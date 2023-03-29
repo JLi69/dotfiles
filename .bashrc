@@ -47,7 +47,7 @@ parse_git_branch() {
 }
 
 if [ "$color_prompt" = yes ]; then
-	PS1='[\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]] \[\033[00;35m\]$(parse_git_branch)\[\033[00m\]\n$ '	
+	PS1='[\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\W\[\033[00m\]] \[\033[00;35m\]$(parse_git_branch)\[\033[00m\]$ '	
 else
 	PS1='\u@\h \W\$ '
 fi
@@ -82,7 +82,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH+=":~/.local/bin"
+export PATH+=":/home/jeremy/.local/bin"
 PATH+=:/home/jeremy/git/emsdk
 PATH+=:/home/jeremy/git/emsdk/upstream/emscripten
 PATH+=:/home/jeremy/git/emsdk/node/14.18.2_64bit/bin

@@ -16,5 +16,6 @@ run picom "picom --backend glx --vsync -b"
 run nm-applet nm-applet
 run cbatticon cbatticon
 run package-update-indicator package-update-indicator
+run volumeicon volumeicon
 xautolock -time 6 -locker slock &
 feh --bg-fill $HOME/Pictures/wallpaper/space-wallpaper.jpg &

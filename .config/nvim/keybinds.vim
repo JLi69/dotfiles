@@ -12,15 +12,6 @@ tnoremap <A-J> <C-\><C-N><C-w>j
 tnoremap <A-K> <C-\><C-N><C-w>k
 tnoremap <A-L> <C-\><C-N><C-w>l
 
-" Compile C program
-nnoremap <A-c> :term cc %:t:r.c -o %:t:r && ./%:t:r<CR>
-" Compile C++ program
-nnoremap <A-+> :term c++ %:t:r.cpp -o %:t:r && ./%:t:r<CR>
-" Compile Rust program
-nnoremap <A-r> :term rustc %:t:r.rs -o %:t:r && ./%:t:r<CR>
-" Run python script
-nnoremap <A-p> :term python3 %:t:r.py<CR>
-
 " Remap resizing to something more convenient
 nnoremap <C-h> :vertical resize -2<CR>
 nnoremap <C-l> :vertical resize +2<CR>
