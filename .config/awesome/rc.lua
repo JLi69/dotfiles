@@ -361,7 +361,7 @@ globalkeys = gears.table.join(
 	awful.key({ }, "Print", function() awful.spawn("flameshot gui", false) end,
 			  {description = "take a screenshot", group = "misc"}),
 	-- Lock Screen
-	awful.key({ modkey, "Mod1"   }, "l", function () awful.spawn("slock", false)    end,
+	awful.key({ modkey, "Mod1"   }, "l", function () awful.spawn("i3lock -c 000000", false)    end,
               {description = "Lock the computer", group = "misc"}),
 	
 	-- Volume Control
@@ -536,7 +536,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true, placement = awful.placement.centered }
+      }, properties = { titlebars_enabled = false, placement = awful.placement.centered }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
