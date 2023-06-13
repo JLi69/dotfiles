@@ -26,6 +26,7 @@ call plug#begin("~/.config/nvim/autoload")
 	Plug 'beyondmarc/glsl.vim' " glsl syntax highlighting	
 	Plug 'jackguo380/vim-lsp-cxx-highlight' " Intellisense Syntax highlighting	
 	Plug 'vim-airline/vim-airline'
+	Plug 'udalov/kotlin-vim'
 call plug#end()
 
 " Plugin configs
@@ -81,3 +82,5 @@ let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:lsp_cxx_hl_use_text_props = 1
+
+set cc=80

@@ -10,5 +10,4 @@ set background=dark
 colorscheme PaperColor 
 
 set cmdheight=2
-set shiftwidth=4
 set noexpandtab

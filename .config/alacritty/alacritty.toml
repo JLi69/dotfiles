@@ -1,0 +1,39 @@
+[colors.bright]
+black = "#888888"
+blue = "#44ccdd"
+cyan = "#bbffff"
+green = "#bbff88"
+magenta = "#eebbee"
+red = "#ff8888"
+white = "#ffffff"
+yellow = "#ffff88"
+
+[colors.normal]
+black = "#222222"
+blue = "#44aaff"
+cyan = "#99ffff"
+green = "#77ff00"
+magenta = "#ee60ee"
+red = "#ff3333"
+white = "#eeeeee"
+yellow = "#ffff44"
+
+[colors.primary]
+background = "#222222"
+foreground = "#eeeeee"
+
+[env]
+WINIT_X11_SCALE_FACTOR = "1"
+
+[font]
+size = 11.5
+
+[font.normal]
+family = "Hack Nerd Font"
+
+[window]
+opacity = 0.95
+
+[window.dimensions]
+columns = 80
+lines = 24
