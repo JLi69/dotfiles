@@ -19,3 +19,5 @@ run package-update-indicator package-update-indicator
 run volumeicon volumeicon
 xautolock -time 6 -locker "i3lock -c 000000" &
 feh --bg-fill $HOME/Pictures/wallpaper/space-wallpaper.png &
+
+xmodmap ~/.xmodmap
