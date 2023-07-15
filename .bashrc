@@ -5,7 +5,7 @@ set -o vi
 if [ -n "$PS1" ] ; then
 	rm () 
 	{ 
-		ls -FCsd --color=auto $@ --color=auto -aU 
+		ls -FCsd --color=auto $@ -aU 
 		echo 'remove[n/Y]? ' | tr -d '\012'; read
 		if [ "_$REPLY" = "_Y" ]; then
 			/bin/rm "$@"
@@ -83,9 +83,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH+=":/home/jeremy/.local/bin"
-PATH+=:/home/jeremy/git/emsdk
-PATH+=:/home/jeremy/git/emsdk/upstream/emscripten
-PATH+=:/home/jeremy/git/emsdk/node/14.18.2_64bit/bin
 
-EMSDK=/home/jeremy/git/emsdk
-EMSDK_NODE=/home/jeremy/git/emsdk/node/14.18.2_64bit/bin/node
+source ~/.config/nnn/nnn.sh
