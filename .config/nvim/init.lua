@@ -1,5 +1,5 @@
 -- disable compatibility to old-time vi
-vim.cmd("set nocompatible")             
+vim.cmd "set nocompatible" 
 -- highlight search
 vim.opt.hlsearch = true                 
 -- incremental search
@@ -17,12 +17,11 @@ vim.opt.number = true
 -- get bash-like tab completions
 vim.opt.wildmode = "longest,list"
 -- allow auto-indenting depending on file type
-vim.cmd("filetype plugin on")
+vim.cmd "filetype plugin on" 
 -- enable mouse click
 vim.opt.mouse = 'a'
 -- using system clipboard
-vim.opt.clipboard = "unnamedplus"   
-vim.opt.filetype.plugin = "on"
+vim.opt.clipboard = "unnamedplus"   vim.opt.filetype.plugin = "on"
 -- Speed up scrolling in Vim
 vim.ttyfast = true
 
@@ -38,10 +37,10 @@ vim.opt.hidden = true
 
 vim.opt.shortmess:append("c")
 
-vim.cmd([[
+vim.cmd [[
 	autocmd TermOpen * setlocal nonumber norelativenumber
 	autocmd TermOpen * startinsert
-]])
+]] 
 
 vim.opt.signcolumn = "number"
 vim.opt.termguicolors = true
