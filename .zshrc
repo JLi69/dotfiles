@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+if [[ -o login ]]; then
+	return
+fi
+
 set +o prompt_cr +o prompt_sp
 
 export NVM_DIR="$HOME/.nvm"

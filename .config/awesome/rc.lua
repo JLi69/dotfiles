@@ -73,11 +73,11 @@ awful.layout.layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
@@ -223,7 +223,7 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            -- mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
@@ -361,7 +361,7 @@ globalkeys = gears.table.join(
 	awful.key({ }, "Print", function() awful.spawn("flameshot gui", false) end,
 			  {description = "take a screenshot", group = "misc"}),
 	-- Lock Screen
-	awful.key({ modkey, "Mod1"   }, "l", function () awful.spawn("i3lock -c 000000", false)    end,
+	awful.key({ modkey, "Mod1"   }, "l", function () awful.spawn("slock", false)    end,
               {description = "Lock the computer", group = "misc"}),
 	
 	-- Volume Control
