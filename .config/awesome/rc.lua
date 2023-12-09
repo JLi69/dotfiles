@@ -494,7 +494,7 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
      }
     },
 
@@ -519,8 +519,7 @@ awful.rules.rules = {
 
 		  "Gnome-calculator",
 		  "Pavucontrol",
-		  "Image Lounge",
-	      "minecraft-launcher" },
+		  "Image Lounge" },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.

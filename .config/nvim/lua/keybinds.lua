@@ -12,9 +12,6 @@ map("n", "<C-X>", ":split<CR>:terminal<CR>")
 map("n", "<C-T>", ":tabnew<CR>")
 -- Delete buffer
 map("n", "<A-w>", ":bd<CR>")
--- next/previous buffer
-map("n", "<C-A>", ":bprev<CR>")
-map("n", "<C-D>", ":bnext<CR>")
 -- CTRL + S to save file
 map("n", "<C-S>", ":w<CR>")
 
