@@ -15,6 +15,7 @@ export NVM_DIR="$HOME/.nvm"
 
 PATH+=":$HOME/.local/bin"
 PATH+=":$HOME/.cargo/bin"
+PATH+=":/usr/local/go/bin"
 
 source ~/.bash_aliases
 

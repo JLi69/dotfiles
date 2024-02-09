@@ -1,5 +1,5 @@
 {
-	"rust-analyzer.server.path": "/home/jeremy/.local/bin/rust-analyzer",
+	"rust-analyzer.server.path": "$HOME/.local/bin/rust-analyzer",
 
 	"languageserver": 
 	{
@@ -30,7 +30,13 @@
 					"emitInactiveRegions": true
 				}
 			}
-		}	
+		},
+
+		"go": {
+			"command": "$HOME/go/bin/gopls",
+			"rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
+			"filetypes": ["go"]
+		}
 	},
 
 	"coc":

@@ -27,6 +27,7 @@ vim.ttyfast = true
 
 -- font
 vim.opt.guifont = "Hack:h11"
+vim.opt.mouse = ""
 
 vim.opt.cmdheight = 2
 vim.opt.updatetime = 300
