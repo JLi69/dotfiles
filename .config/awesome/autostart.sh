@@ -12,6 +12,7 @@ run()
 }
 
 xrandr --output HDMI-2 --same-as HDMI-1 & # Mirror displays
+run mate-polkit mate-polkit
 run picom "picom --backend glx --vsync -b"
 run nm-applet nm-applet
 run cbatticon cbatticon
@@ -20,4 +21,4 @@ run volumeicon volumeicon
 xautolock -time 6 -locker "slock" &
 feh --bg-fill $HOME/Pictures/wallpaper/space-wallpaper.png &
 
-xmodmap ~/.xmodmap
+setxkbmap -layout us -option ctrl:nocaps
