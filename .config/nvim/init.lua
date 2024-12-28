@@ -1,3 +1,5 @@
+require("config.lazy")
+
 -- disable compatibility to old-time vi
 vim.cmd "set nocompatible" 
 -- highlight search
@@ -47,16 +49,30 @@ vim.opt.signcolumn = "number"
 vim.opt.termguicolors = true
 
 require("keybinds")
-require("plugins")
-require("plug-config.airline")
-require("plug-config.startify")
-require("plug-config.nerdtree")
+require("lualine").setup({
+	options = {
+		always_show_tabline = true,
+	},
+	sections = {
+		lualine_a = { 'mode' },
+		lualine_b = { 'branch', 'diff', 'diagnostics' },
+		lualine_c = { 'filename', 'lsp_progress' },
+		lualine_x = { 'encoding', 'fileformat', 'filetype' },
+		lualine_y = { 'progress' },
+		lualine_z = { 'location' },
+	},
+	tabline = {
+		lualine_a = { 'buffers' },
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = { 'tabs' },
+	},
+})
+require("startify-conf")
+require("lsp-setup")
 
 -- Set color scheme
 vim.g.everforest_background = "hard"
 vim.cmd("colorscheme everforest")
-
-vim.g.cpp_class_scope_highlight = 1
-vim.g.cpp_member_variable_highlight = 1
-vim.g.cpp_class_decl_highlight = 1
-vim.g.lsp_cxx_hl_use_text_props = 1

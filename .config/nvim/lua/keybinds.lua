@@ -31,3 +31,6 @@ map("n", "<C-h>", ":vertical resize -2<CR>")
 map("n", "<C-l>", ":vertical resize +2<CR>")
 map("n", "<C-A-J>", ":res +1<CR>")
 map("n", "<C-A-K>", ":res -1<CR>")
+
+-- Nvim Tree
+map("n", "<C-F>", ":NvimTreeToggle<CR>")
