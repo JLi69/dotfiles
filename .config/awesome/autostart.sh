@@ -19,6 +19,6 @@ run cbatticon cbatticon
 run package-update-indicator package-update-indicator
 run volumeicon volumeicon
 xautolock -time 6 -locker "slock" &
-feh --bg-fill $HOME/Pictures/wallpaper/HIYA.png &
+feh --bg-fill $HOME/Pictures/wallpaper/space-wallpaper.png &
 
 setxkbmap -layout us -option ctrl:nocaps
