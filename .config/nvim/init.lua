@@ -76,3 +76,7 @@ require("lsp-setup")
 -- Set color scheme
 vim.g.everforest_background = "hard"
 vim.cmd("colorscheme everforest")
+
+vim.diagnostic.config({
+	virtual_text = true,
+})
