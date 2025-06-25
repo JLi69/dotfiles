@@ -1,3 +1,6 @@
+-- Leader
+vim.g.mapleader = '<Space>'
+
 require("config.lazy")
 
 -- disable compatibility to old-time vi
@@ -23,7 +26,8 @@ vim.cmd "filetype plugin on"
 -- enable mouse click
 vim.opt.mouse = 'a'
 -- using system clipboard
-vim.opt.clipboard = "unnamedplus"   vim.opt.filetype.plugin = "on"
+vim.opt.clipboard = "unnamedplus"   
+vim.opt.filetype.plugin = "on"
 -- Speed up scrolling in Vim
 vim.ttyfast = true
 

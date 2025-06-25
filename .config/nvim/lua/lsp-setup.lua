@@ -33,7 +33,7 @@ require('lspconfig').ccls.setup({
 require('lspconfig').gopls.setup({
 	cmd = { HOME .. "/go/bin/gopls" }
 })
-require'lspconfig'.jedi_language_server.setup{}
+require('lspconfig').jedi_language_server.setup({})
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
@@ -66,7 +66,7 @@ local cmp = require('cmp')
 cmp.setup({
 	sources = {
 		{ name = 'nvim_lsp' },
-		{ name = 'nvim_lsp_signature_help' }
+		{ name = 'nvim_lsp_signature_help' },
 	},
 	snippet = {
 		expand = function(args)
