@@ -84,3 +84,6 @@ vim.cmd("colorscheme everforest")
 vim.diagnostic.config({
 	virtual_text = true,
 })
+
+-- Godot setup
+require("godot-setup")
