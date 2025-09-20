@@ -1,7 +1,7 @@
 local os = require('os')
-local HOME = os.getenv("HOME")
 local util = require 'lspconfig.util'
 
+local HOME = os.getenv("HOME")
 local lspconfig_defaults = require('lspconfig').util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 	'force',
@@ -10,30 +10,18 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 )
 
 -- Set up language servers
-require('lspconfig').rust_analyzer.setup({})
-require('lspconfig').ccls.setup({
-	init_options = {
-		cache = {
-			directory = '/tmp/ccls-cache',
-		},
-		highlight = {
-			lsRanges = true,
-		},
-	},
-	root_dir = function(fname)
-		return util.root_pattern('compile_commands.json', '.ccls')(fname)
-			or vim.fs.dirname(vim.fs.find('.git', { path = fname, upward = true })[1])
-			or vim.fn.getcwd()
-	end,
-	single_file_support = true,
-})
 -- I should probably get some way to manage lsp servers with a package manager
 -- like mason... I'll probably do that later
 -- TODO: figure out how to set up mason
-require('lspconfig').gopls.setup({
-	cmd = { HOME .. "/go/bin/gopls" }
+vim.lsp.config('gopls', {
+	cmd = { HOME .. '/go/bin/gopls' }
 })
-require('lspconfig').jedi_language_server.setup({})
+vim.lsp.enable({
+	'rust_analyzer',
+	'ccls',
+	'gopls',
+	'jedi_language_server'
+});
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file

@@ -87,3 +87,6 @@ vim.diagnostic.config({
 
 -- Godot setup
 require("godot-setup")
+
+-- Java
+require('java')
