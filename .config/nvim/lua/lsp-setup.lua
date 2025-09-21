@@ -21,7 +21,7 @@ vim.lsp.enable({
 	'ccls',
 	'gopls',
 	'jedi_language_server'
-});
+})
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
