@@ -248,12 +248,12 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
-function change_volume(widget, amt)
-	awful.spawn("pactl set-sink-volume 0 +" .. tostring(amt) .. "%", false)
+function change_volume(widget, amt, sign)
+	awful.spawn("amixer -D pulse sset Master " .. tostring(amt) .. "%" .. sign, false)
 end
 
 function toggle_mute(widget)
-	awful.spawn("pactl set-sink-mute 0 toggle", false)
+	awful.spawn("amixer -D pulse set Master 1+ toggle", false)
 end
 
 -- {{{ Key bindings
@@ -365,8 +365,8 @@ globalkeys = gears.table.join(
               {description = "Lock the computer", group = "misc"}),
 	
 	-- Volume Control
-	awful.key({ modkey }, "]", function() change_volume(volume_widget, 5) end),
-	awful.key({ modkey }, "[", function() change_volume(volume_widget, -5) end),
+	awful.key({ modkey }, "]", function() change_volume(volume_widget, 5, "+") end),
+	awful.key({ modkey }, "[", function() change_volume(volume_widget, 5, "-") end),
 	awful.key({ modkey }, "\\", function() toggle_mute(volume_widget) end)
 )
 

@@ -26,7 +26,7 @@ vim.cmd "filetype plugin on"
 -- enable mouse click
 vim.opt.mouse = 'a'
 -- using system clipboard
-vim.opt.clipboard = "unnamedplus"   
+vim.opt.clipboard = "unnamedplus"
 vim.opt.filetype.plugin = "on"
 -- Speed up scrolling in Vim
 vim.ttyfast = true
