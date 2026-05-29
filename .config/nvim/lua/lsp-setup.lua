@@ -18,9 +18,8 @@ vim.lsp.config('gopls', {
 })
 vim.lsp.enable({
 	'rust_analyzer',
-	'ccls',
+	'clangd',
 	'gopls',
-	'jedi_language_server'
 })
 
 -- This is where you enable features that only work
@@ -41,6 +40,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
 		vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 	end,
+})
+
+vim.diagnostic.config({
+	update_in_insert = true,
 })
 
 local cmp = require('cmp')
