@@ -17,7 +17,7 @@ run picom "picom -b --vsync --config $HOME/.config/picom/picom.conf"
 run nm-applet nm-applet
 run cbatticon cbatticon
 run package-update-indicator package-update-indicator
-run volumeicon volumeicon
+run pnmixer pnmixer
 xautolock -time 6 -locker "slock" &
 feh --bg-fill $HOME/Pictures/wallpaper/earthset.jpg &
 
